@@ -52,27 +52,22 @@ end
 
 function M.set_terminal_colors()
 	local c = M.colors
-	local bright = function(color)
-		return M.utils.mix(color, "#ffffff", 0.64)
-	end
-	local is_light = (M.config.theme or vim.opt.background:get()) == "light"
-
-	vim.g.terminal_color_0 = is_light and c.foreground or c.secondary -- ansiBlack
+	vim.g.terminal_color_0 = c.foreground
 	vim.g.terminal_color_1 = c.red
 	vim.g.terminal_color_2 = c.green
 	vim.g.terminal_color_3 = c.yellow
 	vim.g.terminal_color_4 = c.blue
 	vim.g.terminal_color_5 = c.purple
 	vim.g.terminal_color_6 = c.cyan
-	vim.g.terminal_color_7 = c.background -- ansiWhite
-	vim.g.terminal_color_8 = is_light and c.secondary or c.foreground -- ansiBrightBlack
-	vim.g.terminal_color_9 = bright(c.red)
-	vim.g.terminal_color_10 = bright(c.green)
-	vim.g.terminal_color_11 = bright(c.yellow)
-	vim.g.terminal_color_12 = bright(c.blue)
-	vim.g.terminal_color_13 = bright(c.purple)
-	vim.g.terminal_color_14 = bright(c.cyan)
-	vim.g.terminal_color_15 = c.background -- ansiBrightWhite
+	vim.g.terminal_color_7 = c.background
+	vim.g.terminal_color_8 = c.foreground
+	vim.g.terminal_color_9 = c.red
+	vim.g.terminal_color_10 = c.green
+	vim.g.terminal_color_11 = c.yellow
+	vim.g.terminal_color_12 = c.blue
+	vim.g.terminal_color_13 = c.purple
+	vim.g.terminal_color_14 = c.cyan
+	vim.g.terminal_color_15 = c.background
 	vim.g.terminal_color_background = M.colors.background
 	vim.g.terminal_color_foreground = M.colors.foreground
 end
