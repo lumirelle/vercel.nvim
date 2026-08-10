@@ -2,7 +2,7 @@
 
 > [!Note]
 >
-> This is a personal usage fork for [tiesen243/vercel.nvim](https://github.com/tiesen243/vercel.nvim/), align with the latest color design of vercel.com.
+> This is a personal usage fork for [tiesen243/vercel.nvim](https://github.com/tiesen243/vercel.nvim/), align with the latest color design of [vercel.com](vercel.com).
 
 ## Preview
 
