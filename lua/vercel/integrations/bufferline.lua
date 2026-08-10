@@ -11,7 +11,7 @@ function M.highlights(options)
 		background = { bg = bg },
 
 		tab = {
-			fg = colors.foreground,
+			fg = colors.secondary,
 			bg = bg,
 		},
 		tab_selected = {
@@ -49,7 +49,7 @@ function M.highlights(options)
 			bg = bg,
 		},
 		buffer_selected = {
-			fg = colors.orange,
+			fg = colors.foreground,
 			bg = bg,
 			bold = false,
 		},

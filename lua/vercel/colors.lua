@@ -1,52 +1,56 @@
-local hsl = require("vercel.utils").hsl
-
 local M = {}
 
 ---@param theme "light" | "dark"
 M.getColors = function(theme)
 	local colors = {}
 	if theme == "light" or vim.o.background == "light" then
-		colors.background = hsl(0, 0, 89.8)
-		colors.foreground = hsl(240, 10, 3.9)
-		colors.secondary = hsl(0, 0, 64)
+		colors.background = "#ffffff" -- Background.default
+		colors.foreground = "#171717" -- Foreground.default | Foreground.active
+		colors.secondary = "#4d4d4d" -- Foreground.inactive
 
-		colors.border = hsl(0, 0, 85)
-		colors.lineNumber = hsl(0, 0, 9)
-		colors.lineNumberActive = hsl(0, 0, 74)
-		colors.menu = hsl(0, 0, 74)
-		colors.popup = hsl(240, 4.8, 95.9)
-		colors.select = hsl(0, 0, 85)
+		colors.border = "#ebebeb" -- Border.default & assist
+		colors.placeholder = "#8b8b8b" -- Foreground.placeholder
+		colors.scrollbar   = "#858585" -- Background.scrollbar
+		colors.lineNumber = "#4d4d4d" -- Foreground.inactive
+		colors.lineNumberActive = "#171717" -- Foreground.active
+		colors.menu = "#fafafa" -- Background.assist
+		colors.popup = "#fafafa" -- Background.assist
+		colors.select = "#f2f2f2" -- Background.select & selected | Background.verbose
 
-		colors.blue = hsl(211, 100, 42)
-		colors.green = hsl(142.1, 76.2, 36.3)
-		colors.orange = hsl(24, 92, 46)
-		colors.purple = hsl(274, 71, 43)
-		colors.red = hsl(336, 65, 45)
-		colors.yellow = hsl(24, 79, 43)
+		colors.blue = "#005ff2" -- Foreground.blue
+		colors.green = "#107d32" -- Foreground.green
+		colors.purple = "#7d00cc" -- Foreground.purple
+		colors.red = "#d8001b" -- Foreground.red
+		colors.yellow = "#aa4d00" -- Foreground.yellow
+		colors.pink = "#c41562" -- Foreground.pink
+		colors.cyan = "#01f7f7" -- Foreground.cyan
 
-		colors.property = hsl(0, 0, 4)
-		colors.string = hsl(139, 79, 28)
+		colors.property = "#171717" -- Foreground.default | Foreground.active
+		colors.string = "#107d32" -- Foreground.green
 	else
-		colors.background = hsl(240, 10, 3.9)
-		colors.foreground = hsl(0, 0, 93)
-		colors.secondary = hsl(0, 0, 64)
+		colors.background = "#000000" -- Background.default
+		colors.foreground = "#ededed" -- Foreground.default | Foreground.active
+		colors.secondary = "#a0a0a0" -- Foreground.inactive
 
-		colors.border = hsl(0, 0, 13)
-		colors.lineNumber = hsl(0, 0, 53)
-		colors.lineNumberActive = hsl(0, 0, 93)
-		colors.menu = hsl(0, 0, 17)
-		colors.popup = hsl(240, 3.7, 15.9)
-		colors.select = hsl(0, 0, 93)
+		colors.border = "#1a1a1a" -- Border.default & assist
+		colors.placeholder = "#8f8f8f"
+		colors.scrollbar   = "#959595"
+		colors.lineNumber = "#a0a0a0" -- Foreground.inactive
+		colors.lineNumberActive = "#ededed" -- Foreground.active
+		colors.menu = "#000000" -- Background.assist
+		colors.popup = "#000000" -- Background.assist
+		colors.select = "#1a1a1a" -- Background.select & selected | Background.verbose
 
-		colors.blue = hsl(210, 100, 66)
-		colors.green = hsl(142.1, 76.2, 36.3)
-		colors.orange = hsl(25, 100, 72)
-		colors.purple = hsl(275, 80, 71)
-		colors.red = hsl(341, 90, 67)
-		colors.yellow = hsl(40, 71, 73)
+		colors.blue = "#47a8ff" -- Foreground.blue
+		colors.green = "#00ca50" -- Foreground.green
+		colors.purple = "#c472fb" -- Foreground.purple
+		colors.red = "#ff565f" -- Foreground.red
+		colors.yellow = "#ff9300" -- Foreground.yellow
+		colors.pink = "#ff4d8d" -- Foreground.pink
+		colors.cyan = "#01f7f7" -- Foreground.cyan
 
-		colors.property = hsl(0, 0, 93)
-		colors.string = hsl(131, 43, 57)
+		colors.property = "#ededed" -- Foreground.default | Foreground.active
+		colors.string = "#00ca50" -- Foreground.green
 	end
 
 	return colors

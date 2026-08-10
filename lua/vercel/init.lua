@@ -35,22 +35,28 @@ function M.colorscheme()
 end
 
 function M.set_terminal_colors()
-	vim.g.terminal_color_0 = M.colors.background
-	vim.g.terminal_color_1 = M.colors.red
-	vim.g.terminal_color_2 = M.colors.green
-	vim.g.terminal_color_3 = M.colors.yellow
-	vim.g.terminal_color_4 = M.colors.blue
-	vim.g.terminal_color_5 = M.colors.purple
-	vim.g.terminal_color_6 = M.colors.string
-	vim.g.terminal_color_7 = M.colors.foreground
-	vim.g.terminal_color_8 = M.colors.background
-	vim.g.terminal_color_9 = M.colors.red
-	vim.g.terminal_color_10 = M.colors.green
-	vim.g.terminal_color_11 = M.colors.yellow
-	vim.g.terminal_color_12 = M.colors.blue
-	vim.g.terminal_color_13 = M.colors.purple
-	vim.g.terminal_color_14 = M.colors.string
-	vim.g.terminal_color_15 = M.colors.foreground
+	local c = M.colors
+	local bright = function(color)
+		return M.utils.mix(color, "#ffffff", 0.64)
+	end
+	local is_light = M.config.theme == "light"
+
+	vim.g.terminal_color_0 = is_light and c.foreground or c.secondary -- ansiBlack
+	vim.g.terminal_color_1 = c.red
+	vim.g.terminal_color_2 = c.green
+	vim.g.terminal_color_3 = c.yellow
+	vim.g.terminal_color_4 = c.blue
+	vim.g.terminal_color_5 = c.purple
+	vim.g.terminal_color_6 = c.cyan
+	vim.g.terminal_color_7 = c.background -- ansiWhite
+	vim.g.terminal_color_8 = is_light and c.secondary or c.foreground -- ansiBrightBlack
+	vim.g.terminal_color_9 = bright(c.red)
+	vim.g.terminal_color_10 = bright(c.green)
+	vim.g.terminal_color_11 = bright(c.yellow)
+	vim.g.terminal_color_12 = bright(c.blue)
+	vim.g.terminal_color_13 = bright(c.purple)
+	vim.g.terminal_color_14 = bright(c.cyan)
+	vim.g.terminal_color_15 = c.background -- ansiBrightWhite
 	vim.g.terminal_color_background = M.colors.background
 	vim.g.terminal_color_foreground = M.colors.foreground
 end
@@ -59,7 +65,7 @@ function M.set_groups()
 	local bg = M.config.transparent and "NONE" or M.colors.background
 	local diff_add = M.utils.shade(M.colors.green, 0.5, M.colors.background)
 	local diff_delete = M.utils.shade(M.colors.red, 0.5, M.colors.background)
-	local diff_change = M.utils.shade(M.colors.purple, 0.5, M.colors.background)
+	local diff_change = M.utils.shade(M.colors.yellow, 0.5, M.colors.background)
 	local diff_text = M.utils.shade(M.colors.property, 0.5, M.colors.background)
 
 	local groups = {
@@ -72,10 +78,10 @@ function M.set_groups()
 			bg = M.utils.shade(M.colors.string, 0.5, M.colors.background),
 		},
 		Conceal = {},
-		Cursor = { fg = M.colors.background, bg = M.colors.foreground },
+		Cursor = { fg = M.colors.foreground },
 		lCursor = { link = "Cursor" },
 		CursorIM = { link = "Cursor" },
-		CursorLine = { bg = M.colors.popup },
+		CursorLine = { bg = M.colors.select },
 		CursorColumn = { link = "CursorLine" },
 		Directory = { fg = M.colors.foreground },
 		DiffAdd = { bg = bg, fg = diff_add },
@@ -92,12 +98,12 @@ function M.set_groups()
 		Folded = { fg = M.colors.foreground, bg = M.colors.popup },
 		FoldColumn = { link = "SignColumn" },
 		IncSearch = {
-			bg = M.utils.mix(M.colors.blue, M.colors.background, math.abs(0.30)),
+			bg = M.utils.mix(M.colors.yellow, M.colors.background, 0.66),
 			fg = M.colors.background,
 		},
 		Substitute = { link = "IncSearch" },
 		CursorLineNr = { fg = M.colors.secondary },
-		MatchParen = { fg = M.colors.red },
+		MatchParen = { fg = M.colors.pink },
 		ModeMsg = { link = "Normal" },
 		MsgArea = { link = "Normal" },
 		-- MsgSeparator = {},
@@ -111,7 +117,7 @@ function M.set_groups()
 		PmenuSbar = {
 			bg = M.utils.shade(M.colors.background, 0.5, M.colors.background),
 		},
-		PmenuThumb = { bg = M.utils.shade(M.colors.background, 0.20) },
+		PmenuThumb = { bg = M.colors.scrollbar },
 		Question = { fg = M.colors.purple },
 		QuickFixLine = { fg = M.colors.purple },
 		SpecialKey = { fg = M.colors.property },
@@ -129,21 +135,19 @@ function M.set_groups()
 			bg = M.colors.background,
 			fg = M.colors.foreground,
 		},
-		Search = { bg = M.utils.shade(M.colors.string, 0.70, M.colors.bg) },
+		Search = { bg = M.utils.mix(M.colors.yellow, M.colors.background, 0.40) },
 		SpellBad = { undercurl = true, sp = M.colors.red },
 		SpellCap = { undercurl = true, sp = M.colors.purple },
 		SpellLocal = { undercurl = true, sp = M.colors.blue },
 		SpellRare = { undercurl = true, sp = M.colors.yellow },
 		Title = { fg = M.colors.blue, bold = true },
-		Visual = {
-			bg = M.utils.shade(M.colors.blue, 0.40, M.colors.background),
-		},
+		Visual = { bg = M.colors.select },
 		VisualNOS = { link = "Visual" },
 		WarningMsg = { fg = M.colors.yellow },
-		Whitespace = { fg = M.colors.background },
+		Whitespace = { fg = M.colors.placeholder },
 		WildMenu = { bg = M.colors.menu },
 		Comment = {
-			fg = M.colors.secondary,
+			fg = M.colors.placeholder,
 			italic = M.config.italics.comments or false,
 		},
 
@@ -159,23 +163,23 @@ function M.set_groups()
 
 		Identifier = { fg = M.colors.foreground },
 		Function = { fg = M.colors.purple },
-		Method = { fg = M.colors.blue },
-		Property = { fg = M.colors.red },
+		Method = { fg = M.colors.purple },
+		Property = { fg = M.colors.blue },
 		Field = { link = "Property" },
-		Parameter = { fg = M.colors.orange },
-		Statement = { fg = M.colors.red },
-		Conditional = { fg = M.colors.red },
+		Parameter = { fg = M.colors.foreground },
+		Statement = { fg = M.colors.pink },
+		Conditional = { fg = M.colors.pink },
 		-- Repeat = {},
 		Label = { fg = M.colors.purple },
-		Operator = { fg = M.colors.red },
+		Operator = { fg = M.colors.pink },
 		Keyword = { link = "Statement", italic = M.config.italics.keywords or false },
-		Exception = { fg = M.colors.red },
+		Exception = { fg = M.colors.pink },
 
 		PreProc = { link = "Keyword" },
 		-- Include = {},
 		Define = { fg = M.colors.blue },
 		Macro = { link = "Define" },
-		PreCondit = { fg = M.colors.red },
+		PreCondit = { fg = M.colors.pink },
 
 		Type = { fg = M.colors.purple },
 		Struct = { link = "Type" },
@@ -185,7 +189,7 @@ function M.set_groups()
 		-- Structure = {},
 		-- Typedef = {},
 
-		Attribute = { link = "Character" },
+		Attribute = { fg = M.colors.blue },
 		Punctuation = { fg = M.colors.property },
 		Special = { fg = M.colors.property },
 
@@ -212,7 +216,7 @@ function M.set_groups()
 
 		DiagnosticError = { link = "Error" },
 		DiagnosticWarn = { link = "WarningMsg" },
-		DiagnosticInfo = { fg = M.colors.purple },
+		DiagnosticInfo = { fg = M.colors.blue },
 		DiagnosticHint = { fg = M.colors.blue },
 		DiagnosticVirtualTextError = { link = "DiagnosticError" },
 		DiagnosticVirtualTextWarn = { link = "DiagnosticWarn" },
@@ -238,8 +242,8 @@ function M.set_groups()
 		["@texcolorscheme.italic"] = { link = "Italic" },
 		["@texcolorscheme.title"] = { link = "Keyword" },
 		["@texcolorscheme.uri"] = {
-			fg = M.colors.purple,
-			sp = M.colors.purple,
+			fg = M.colors.blue,
+			sp = M.colors.blue,
 			underline = true,
 		},
 		["@texcolorscheme.underline"] = { link = "Underlined" },
@@ -250,11 +254,11 @@ function M.set_groups()
 		["@punctuation.bracket"] = { fg = M.colors.foreground },
 		["@punctuation.delimiter"] = { fg = M.colors.foreground },
 		["@punctuation.terminator.statement"] = { link = "Delimiter" },
-		["@punctuation.special"] = { fg = M.colors.red },
-		["@punctuation.separator.keyvalue"] = { fg = M.colors.red },
+		["@punctuation.special"] = { fg = M.colors.pink },
+		["@punctuation.separator.keyvalue"] = { fg = M.colors.pink },
 
-		["@texcolorscheme.diff.add"] = { fg = M.colors.green },
-		["@texcolorscheme.diff.delete"] = { fg = M.colors.red },
+		["@texcolorscheme.diff.add"] = { fg = M.colors.blue },
+		["@texcolorscheme.diff.delete"] = { fg = M.colors.pink },
 
 		["@constant"] = { link = "Constant" },
 		["@constant.builtin"] = { link = "Constant" },
@@ -307,7 +311,7 @@ function M.set_groups()
 		["@keyword"] = { link = "Keyword" },
 		-- ["@storageclass"] = {},
 		-- ["@structure"] = {},
-		["@namespace"] = { link = "Type" },
+		["@namespace"] = { fg = M.colors.blue },
 		["@annotation"] = { link = "Label" },
 		-- ["@include"] = {},
 		-- ["@preproc"] = {},
@@ -315,13 +319,13 @@ function M.set_groups()
 		["@tag"] = { link = "Tag" },
 		["@tag.builtin"] = { link = "Tag" },
 		["@tag.delimiter"] = { fg = M.colors.property },
-		["@tag.attribute"] = { fg = M.colors.purple },
-		["@tag.jsx.element"] = { fg = M.colors.purple },
+		["@tag.attribute"] = { fg = M.colors.blue },
+		["@tag.jsx.element"] = { fg = M.colors.blue },
 		["@tag.tsx"] = { fg = M.colors.blue },
 		["@attribute"] = { fg = M.colors.blue },
 		["@error"] = { link = "Error" },
 		["@warning"] = { link = "WarningMsg" },
-		["@info"] = { fg = M.colors.purple },
+		["@info"] = { fg = M.colors.blue },
 
 		-- Specific languages
 		-- overrides
@@ -366,8 +370,8 @@ function M.set_groups()
 
 		["@lsp.type.parameter.typescript"] = { fg = M.colors.foreground },
 		["@lsp.type.parameter.typescriptreact"] = { fg = M.colors.foreground },
-		["@lsp.typemod.parameter.declaration.typescript"] = { fg = M.colors.orange },
-		["@lsp.typemod.parameter.declaration.typescriptreact"] = { fg = M.colors.orange },
+		["@lsp.typemod.parameter.declaration.typescript"] = { fg = M.colors.foreground },
+		["@lsp.typemod.parameter.declaration.typescriptreact"] = { fg = M.colors.foreground },
 	}
 
 	-- integrations
