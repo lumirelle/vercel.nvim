@@ -1,5 +1,5 @@
 ---@class Options
----@field theme 'light' | 'dark'
+---@field theme? 'light' | 'dark' -- nil = follow vim.o.background
 ---@field transparent boolean
 ---@field italics { comments: boolean, keywords: boolean, functions: boolean, strings: boolean, variables: boolean, bufferline: boolean }
 ---@field overrides table<string, table<string, string>> | function(options: Options): table<string, table<string, string>>

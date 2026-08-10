@@ -1,7 +1,7 @@
 local config = {
 	---@type Options
 	defaults = {
-		theme = "light",
+		theme = nil, -- nil = follow vim.o.background
 		transparent = false,
 		italics = {
 			comments = true,

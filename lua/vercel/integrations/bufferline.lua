@@ -1,5 +1,12 @@
 local M = {}
 
+--- Match bufferline.nvim's hl group naming (BufferLine + CamelCase).
+--- @param name string
+--- @return string
+function M.group_name(name)
+	return "BufferLine" .. name:gsub("_(.)", string.upper):gsub("^%l", string.upper)
+end
+
 --- @param options Options
 function M.highlights(options)
 	local colors = require("vercel.colors").getColors(options.theme)

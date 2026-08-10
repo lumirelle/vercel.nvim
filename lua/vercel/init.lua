@@ -8,14 +8,19 @@ M.utils = require("vercel.utils")
 function M.setup(options)
 	options = options or {}
 
-	if options.theme == nil then
-		options.theme = vim.opt.background:get()
-	end
-
 	setmetatable(M.config, { __index = vim.tbl_extend("force", M.config.defaults, options) })
 
-	M.highlights = { bufferline = {} }
-	M.highlights.bufferline = require("vercel.integrations.bufferline").highlights(M.config)
+	-- Re-apply the colorscheme when the background changes so theme toggles
+	-- (e.g. Snacks <leader>ub) stay in sync.
+	vim.api.nvim_create_autocmd("OptionSet", {
+		group = vim.api.nvim_create_augroup("vercel.nvim", { clear = true }),
+		pattern = "background",
+		callback = function()
+			if (vim.g.colors_name or ""):find("vercel") then
+				M.colorscheme()
+			end
+		end,
+	})
 end
 
 function M.colorscheme()
@@ -32,6 +37,17 @@ function M.colorscheme()
 
 	M.set_terminal_colors()
 	M.set_groups()
+	M.set_bufferline_highlights()
+end
+
+---Apply BufferLine* highlight groups directly so users don't need to wire
+---`opts.highlights` into bufferline.nvim themselves.
+function M.set_bufferline_highlights()
+	local bufferline = require("vercel.integrations.bufferline")
+	M.highlights = { bufferline = bufferline.highlights(M.config) }
+	for name, opts in pairs(M.highlights.bufferline) do
+		vim.api.nvim_set_hl(0, bufferline.group_name(name), opts)
+	end
 end
 
 function M.set_terminal_colors()
@@ -39,7 +55,7 @@ function M.set_terminal_colors()
 	local bright = function(color)
 		return M.utils.mix(color, "#ffffff", 0.64)
 	end
-	local is_light = M.config.theme == "light"
+	local is_light = (M.config.theme or vim.opt.background:get()) == "light"
 
 	vim.g.terminal_color_0 = is_light and c.foreground or c.secondary -- ansiBlack
 	vim.g.terminal_color_1 = c.red
