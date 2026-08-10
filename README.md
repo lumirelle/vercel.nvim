@@ -1,8 +1,8 @@
 # Vercel Theme
 
-<a href="https://dotfyle.com/plugins/tiesen243/vercel.nvim">
-  <img src="https://dotfyle.com/plugins/tiesen243/vercel.nvim/shield" />
-</a>
+> [!Note]
+>
+> This is a personal usage fork for [tiesen243/vercel.nvim](https://github.com/tiesen243/vercel.nvim/), align with the latest color design of vercel.com.
 
 ## Preview
 
@@ -19,13 +19,13 @@
 1. Using `Lazy`:
 
 ```lua
-{ 'tiesen243/vercel.nvim' },
+{ 'lumirelle/vercel.nvim' },
 ```
 
 2. Using `Packer`:
 
 ```lua
-use 'tiesen243/vercel.nvim'
+use 'lumirelle/vercel.nvim'
 ```
 
 ## Configuration
@@ -34,7 +34,7 @@ To configure the plugin, you can call require('vercel').setup({}), passing the t
 
 ```lua
 {
-    "tiesen243/vercel.nvim",
+    "lumirelle/vercel.nvim",
     lazy = false,
     priority = 1000,
     config = function()
@@ -98,6 +98,8 @@ Contributions are welcome, please open an issue if you encounter any bug or if y
 
 ## Special Thanks
 
+- [tiesen243/vercel.nvim](https://github.com/tiesen243/vercel.nvim/) by @tiesen243 - original repo.
+- [Vercel VS Code theme](https://github.com/lumirelle/vscode-vercel) by @lumirelle — source of the color values used in this theme.
 - This project is based on [nvim-colorscheme-template](https://github.com/datsfilipe/nvim-colorscheme-template) by @datsfilipe, used under the MIT License.
 
 ## License
