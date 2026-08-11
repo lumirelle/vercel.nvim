@@ -9,13 +9,13 @@ M.getColors = function(theme)
 		colors.secondary = "#4d4d4d" -- Foreground.inactive
 
 		colors.border = "#ebebeb" -- Border.default & assist
-		colors.placeholder = "#8b8b8b" -- Foreground.placeholder
+		colors.placeholder = "#7d7d7d" -- Foreground.placeholder
 		colors.scrollbar   = "#858585" -- Background.scrollbar
 		colors.lineNumber = "#4d4d4d" -- Foreground.inactive
 		colors.lineNumberActive = "#171717" -- Foreground.active
-		colors.menu = "#fafafa" -- Background.assist
-		colors.popup = "#fafafa" -- Background.assist
-		colors.select = "#f2f2f2" -- Background.select & selected | Background.verbose
+		colors.menu = "#ffffff" -- Background.default
+		colors.popup = "#ffffff" -- Background.default
+		colors.select = "#ebebeb" -- Background.active
 
 		colors.blue = "#005ff2" -- Foreground.blue
 		colors.green = "#107d32" -- Foreground.green
@@ -33,13 +33,13 @@ M.getColors = function(theme)
 		colors.secondary = "#a0a0a0" -- Foreground.inactive
 
 		colors.border = "#1a1a1a" -- Border.default & assist
-		colors.placeholder = "#8f8f8f"
-		colors.scrollbar   = "#959595"
+		colors.placeholder = "#7d7d7d" -- Foreground.placeholder
+		colors.scrollbar   = "#959595" -- Background.scrollbar
 		colors.lineNumber = "#a0a0a0" -- Foreground.inactive
 		colors.lineNumberActive = "#ededed" -- Foreground.active
-		colors.menu = "#000000" -- Background.assist
-		colors.popup = "#000000" -- Background.assist
-		colors.select = "#1a1a1a" -- Background.select & selected | Background.verbose
+		colors.menu = "#000000" -- Background.default
+		colors.popup = "#000000" -- Background.default
+		colors.select = "#1f1f1f" -- Background.active
 
 		colors.blue = "#47a8ff" -- Foreground.blue
 		colors.green = "#00ca50" -- Foreground.green
