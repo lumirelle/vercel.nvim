@@ -24,6 +24,8 @@ M.getColors = function(theme)
 		colors.yellow = "#aa4d00" -- Foreground.yellow
 		colors.pink = "#c41562" -- Foreground.pink
 		colors.cyan = "#01f7f7" -- Foreground.cyan
+		colors.black = "#171717" -- terminal.ansiBlack
+		colors.white = "#4d4d4d" -- terminal.ansiWhite
 
 		colors.property = "#171717" -- Foreground.default | Foreground.active
 		colors.string = "#107d32" -- Foreground.green
@@ -48,6 +50,8 @@ M.getColors = function(theme)
 		colors.yellow = "#ff9300" -- Foreground.yellow
 		colors.pink = "#ff4d8d" -- Foreground.pink
 		colors.cyan = "#01f7f7" -- Foreground.cyan
+		colors.black = "#a0a0a0" -- terminal.ansiBlack
+		colors.white = "#ededed" -- terminal.ansiWhite
 
 		colors.property = "#ededed" -- Foreground.default | Foreground.active
 		colors.string = "#00ca50" -- Foreground.green
