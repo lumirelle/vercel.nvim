@@ -38,6 +38,7 @@ function M.colorscheme()
 	M.set_terminal_colors()
 	M.set_groups()
 	M.set_bufferline_highlights()
+	M.set_lazygit_theme()
 end
 
 ---Apply BufferLine* highlight groups directly so users don't need to wire
@@ -48,6 +49,12 @@ function M.set_bufferline_highlights()
 	for name, opts in pairs(M.highlights.bufferline) do
 		vim.api.nvim_set_hl(0, bufferline.group_name(name), opts)
 	end
+end
+
+---Override snacks.nvim's lazygit theme so its inactive border follows the
+---foreground color instead of the border color, leaving the rest untouched.
+function M.set_lazygit_theme()
+	require("vercel.integrations.lazygit").apply()
 end
 
 function M.set_terminal_colors()
