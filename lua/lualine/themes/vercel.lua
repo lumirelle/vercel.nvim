@@ -10,8 +10,8 @@ M.normal = {
 }
 
 M.visual = {
-	a = { fg = colors.background, bg = colors.info, gui = "bold" },
-	b = { fg = colors.info, bg = colors.background },
+	a = { fg = colors.background, bg = colors.blue, gui = "bold" },
+	b = { fg = colors.blue, bg = colors.background },
 	c = { fg = colors.foreground, bg = config.transparent and "NONE" or colors.background },
 }
 
