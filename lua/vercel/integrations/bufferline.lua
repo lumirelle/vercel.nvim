@@ -39,7 +39,7 @@ function M.highlights(options)
     },
 
     close_button = {
-      fg = colors.lineNumber,
+      fg = colors.foreground,
       bg = bg,
     },
     close_button_visible = {
@@ -52,7 +52,7 @@ function M.highlights(options)
     },
 
     buffer_visible = {
-      fg = colors.lineNumber,
+      fg = colors.foreground,
       bg = bg,
     },
     buffer_selected = {
