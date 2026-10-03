@@ -59,22 +59,22 @@ end
 
 function M.set_terminal_colors()
   local c = M.colors
-  vim.g.terminal_color_0 = c.black
+  vim.g.terminal_color_0 = c.background_reverse
   vim.g.terminal_color_1 = c.red
   vim.g.terminal_color_2 = c.green
   vim.g.terminal_color_3 = c.amber
   vim.g.terminal_color_4 = c.blue
   vim.g.terminal_color_5 = c.purple
   vim.g.terminal_color_6 = c.teal
-  vim.g.terminal_color_7 = c.white
-  vim.g.terminal_color_8 = c.black
+  vim.g.terminal_color_7 = c.foreground_reverse
+  vim.g.terminal_color_8 = c.background_reverse
   vim.g.terminal_color_9 = c.red
   vim.g.terminal_color_10 = c.green
   vim.g.terminal_color_11 = c.amber
   vim.g.terminal_color_12 = c.blue
   vim.g.terminal_color_13 = c.purple
   vim.g.terminal_color_14 = c.teal
-  vim.g.terminal_color_15 = c.white
+  vim.g.terminal_color_15 = c.foreground_reverse
   vim.g.terminal_color_background = M.colors.background
   vim.g.terminal_color_foreground = M.colors.foreground
 end
@@ -99,15 +99,15 @@ function M.set_groups()
     CursorLine = { bg = M.colors.background_hover },
     Directory = { fg = fg },
     DiffAdd = {
-      bg = M.colors.palette.green[300],
+      bg = M.colors.background_diff_add,
       fg = M.colors.green,
     },
     DiffChange = {
-      bg = M.colors.palette.amber[300],
+      bg = M.colors.background_diff_change,
       fg = M.colors.amber,
     },
     DiffDelete = {
-      bg = M.colors.palette.red[300],
+      bg = M.colors.background_diff_delete,
       fg = M.colors.red,
     },
     DiffText = { fg = M.colors.amber },

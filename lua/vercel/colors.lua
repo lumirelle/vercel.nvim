@@ -235,20 +235,29 @@ M.getColors = function(theme)
   colors.pink = colors.palette.pink[900]
   -- Aka. cyan
   colors.teal = colors.palette.teal[900]
-  colors.black = colors.palette.gray[1000]
-  colors.white = colors.palette.background[100]
 
   colors.background = colors.palette.background[200]
+  colors.background_comparison = colors.palette.background[100]
   colors.background_hover = colors.palette.gray[100]
   colors.background_active = colors.palette.gray[200]
   colors.background_match = colors.palette.amber[200]
+  colors.background_diff_add = colors.palette.green[300]
+  colors.background_diff_change = colors.palette.amber[300]
+  colors.background_diff_delete = colors.palette.red[300]
+  colors.background_disable = colors.palette.gray[100]
+  -- Aka. black for light theme, white for dark theme
+  colors.background_reverse = colors.palette.gray[1000]
 
   colors.foreground = colors.palette.gray[1000]
-  colors.foreground_match = colors.palette.amber[900]
   colors.secondary = colors.palette.gray[900]
   colors.tertiary = colors.palette.gray[800]
+  colors.foreground_match = colors.palette.amber[900]
+  colors.foreground_disable = colors.palette.gray[700]
+  -- Aka. white for light theme, black for dark theme
+  colors.foreground_reverse = colors.palette.background[100]
 
   colors.border = colors.palette.gray[200]
+  colors.border_strong = colors.palette.gray[700]
 
   colors.scrollbar_tracker = colors.palette.background[100]
   colors.scrollbar_thumb = colors.palette.gray[600]
