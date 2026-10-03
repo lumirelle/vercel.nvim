@@ -249,6 +249,7 @@ M.getColors = function(theme)
   colors.background_success = colors.palette.green[300]
   colors.background_warning = colors.palette.amber[300]
   colors.background_error = colors.palette.red[300]
+  colors.background_verbose = colors.palette.gray[300]
   colors.background_disable = colors.palette.gray[100]
   -- Aka. black for light theme, white for dark theme
   colors.background_reverse = colors.palette.gray[1000]
@@ -267,6 +268,7 @@ M.getColors = function(theme)
   colors.border_success = colors.palette.green[400]
   colors.border_warning = colors.palette.amber[400]
   colors.border_error = colors.palette.red[400]
+  colors.border_verbose = colors.palette.gray[400]
   colors.border_focus = colors.palette.blue[is_light and 700 or 900]
 
   colors.scrollbar_tracker = colors.palette.background[100]
