@@ -81,6 +81,7 @@ end
 
 function M.set_groups()
   local bg = M.config.transparent and "NONE" or M.colors.background
+  local bg_comparison = M.config.transparent and "NONE" or M.colors.background_comparison
   local fg = M.colors.foreground
 
   local groups = {
@@ -143,8 +144,8 @@ function M.set_groups()
     MoreMsg = { fg = M.colors.blue },
     NonText = { fg = M.colors.tertiary },
     Normal = { fg = fg, bg = bg },
-    NormalFloat = { link = "Normal" },
-    FloatBorder = { fg = M.colors.border },
+    NormalFloat = { fg = fg, bg = bg_comparison },
+    FloatBorder = { fg = M.colors.border, bg = bg_comparison },
     -- FloatShadow = {},
     -- FloatShadowThrough = {},
     -- FloatTitle = {},
@@ -198,16 +199,16 @@ function M.set_groups()
     Visual = { bg = M.colors.background_hover },
     VisualNOS = { link = "Visual" },
     Whitespace = { fg = M.colors.tertiary },
-    WildMenu = { bg = bg, fg = fg },
+    WildMenu = { bg = bg_comparison, fg = fg },
     -- WinBar = {},
     -- WinBarNC = {},
-    Menu = { bg = bg, fg = fg },
+    Menu = { bg = bg_comparison, fg = fg },
     Scrollbar = {
       fg = M.colors.scrollbar_thumb,
       bg = M.colors.scrollbar_tracker,
     },
     Tooltip = {
-      bg = bg,
+      bg = bg_comparison,
       fg = fg,
     },
 
