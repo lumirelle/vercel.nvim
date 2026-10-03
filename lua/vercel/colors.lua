@@ -253,6 +253,7 @@ M.getColors = function(theme)
   colors.background_disable = colors.palette.gray[100]
   -- Aka. black for light theme, white for dark theme
   colors.background_reverse = colors.palette.gray[1000]
+  colors.background_reverse_hover = colors.palette.gray[900]
 
   colors.foreground = colors.palette.gray[1000]
   colors.secondary = colors.palette.gray[900]
