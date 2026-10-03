@@ -135,7 +135,7 @@ function M.set_groups()
     CursorLineNr = { fg = M.colors.secondary },
     CursorLineFold = { link = "SignColumn" },
     CursorLineSign = { link = "SignColumn" },
-    MatchParen = { fg = M.colors.pink },
+    MatchParen = { fg = M.colors.pink, bg = M.colors.background_hover },
     MCursor = { fg = fg },
     MCursorVisual = { link = "MCursor" },
     ModeMsg = { link = "Normal" },
