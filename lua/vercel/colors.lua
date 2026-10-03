@@ -16,7 +16,8 @@ local M = {}
 ---@param theme "light" | "dark"
 M.getColors = function(theme)
   local colors = {}
-  if theme == "light" or vim.o.background == "light" then
+  local is_light = theme == "light" or vim.o.background == "light"
+  if is_light then
     ---@type VercelPalette
     colors.palette = {
       gray = {
@@ -244,6 +245,10 @@ M.getColors = function(theme)
   colors.background_diff_add = colors.palette.green[300]
   colors.background_diff_change = colors.palette.amber[300]
   colors.background_diff_delete = colors.palette.red[300]
+  colors.background_info = colors.palette.blue[300]
+  colors.background_success = colors.palette.green[300]
+  colors.background_warning = colors.palette.amber[300]
+  colors.background_error = colors.palette.red[300]
   colors.background_disable = colors.palette.gray[100]
   -- Aka. black for light theme, white for dark theme
   colors.background_reverse = colors.palette.gray[1000]
@@ -258,6 +263,11 @@ M.getColors = function(theme)
 
   colors.border = colors.palette.gray[200]
   colors.border_strong = colors.palette.gray[700]
+  colors.border_info = colors.palette.blue[400]
+  colors.border_success = colors.palette.green[400]
+  colors.border_warning = colors.palette.amber[400]
+  colors.border_error = colors.palette.red[400]
+  colors.border_focus = colors.palette.blue[is_light and 700 or 900]
 
   colors.scrollbar_tracker = colors.palette.background[100]
   colors.scrollbar_thumb = colors.palette.gray[600]
