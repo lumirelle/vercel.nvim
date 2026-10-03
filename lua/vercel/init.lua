@@ -325,7 +325,7 @@ function M.set_groups()
     -- ["@define"] = {},
     -- ["@macro"] = {},
     ["@string"] = { link = "String" },
-    -- TODO: No source evidence from vercel.com!
+    -- TODO: No source evidence from the Geist design system!
     ["@string.escape"] = { fg = M.colors.pink },
     ["@string.special"] = { fg = M.colors.pink },
     -- ["@character"] = {},
