@@ -263,6 +263,10 @@ M.getColors = function(theme)
   -- Aka. white for light theme, black for dark theme
   colors.foreground_reverse = colors.palette.background[100]
 
+  -- Do not reverse black and white: it causes display issues in some tools.
+  colors.black = is_light and colors.palette.gray[1000] or colors.palette.gray[900]
+  colors.white = is_light and colors.palette.gray[900] or colors.palette.gray[1000]
+
   colors.border = colors.palette.gray[200]
   colors.border_strong = colors.palette.gray[700]
   colors.border_info = colors.palette.blue[400]
