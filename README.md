@@ -30,7 +30,7 @@ use 'lumirelle/vercel.nvim'
 
 ## Configuration
 
-To configure the plugin, you can call require('vercel').setup({}), passing the table with the values in it. The following are the **defaults**:
+To configure the plugin, you can call `require('vercel').setup({})`, passing the table with the values in it. The following are the **defaults**:
 
 ```lua
 {
@@ -99,7 +99,6 @@ Contributions are welcome, please open an issue if you encounter any bug or if y
 ## Special Thanks
 
 - [tiesen243/vercel.nvim](https://github.com/tiesen243/vercel.nvim/) by @tiesen243 - original repo.
-- [Vercel VS Code theme](https://github.com/lumirelle/vscode-vercel) by @lumirelle — source of the color values used in this theme.
 - This project is based on [nvim-colorscheme-template](https://github.com/datsfilipe/nvim-colorscheme-template) by @datsfilipe, used under the MIT License.
 
 ## License
